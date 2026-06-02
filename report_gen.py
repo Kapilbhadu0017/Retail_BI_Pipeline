@@ -19,7 +19,7 @@ q2 = pd.read_sql_query("""
     SELECT product_name,
         ROUND(SUM(profit), 2) as total_profit
     FROM SALES
-    GRUOP BY product_name
+    GROUP BY product_name
     ORDER BY total_profit DESC
     LIMIT 10
 """, conn)
@@ -37,6 +37,7 @@ q4 = pd.read_sql_query("""
         round(sum(sales),2) as total_sales,
         round(sum(profit),2) as total_profit,
         round((sum(profit) / sum(sales)*100), 2) as profit_margin_pct
+    from sales
     group by category
     order by profit_margin_pct desc
 """, conn)
