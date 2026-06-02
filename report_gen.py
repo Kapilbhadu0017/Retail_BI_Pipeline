@@ -25,7 +25,7 @@ q2 = pd.read_sql_query("""
 """, conn)
 
 q3 = pd.read_sql_query("""
-    SELECT STRFTIME('%m-%Y', order_date) AS month,
+    SELECT STRFTIME('%Y-%m', order_date) AS month,
         ROUND(SUM(sales), 2) as monthly_revenue
     FROM sales
     GROUP BY month
