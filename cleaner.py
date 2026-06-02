@@ -2,6 +2,8 @@ import pandas as pd
 
 df = pd.read_csv('data/raw/Sample - Superstore.csv',encoding='latin-1')
 
+# No duplicates or null values found in data, in exploration.ipynb
+
 pd.set_option('display.max_columns', None)
 
 new_header = list(df.columns)
