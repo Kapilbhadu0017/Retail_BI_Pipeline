@@ -11,3 +11,5 @@ cursor = conn.cursor()
 cursor.execute('select count(*) from sales')
 
 print('Total Rows:',cursor.fetchone()[0])
+
+conn.close()
