@@ -13,3 +13,4 @@ cursor.execute('select count(*) from sales')
 print('Total Rows:',cursor.fetchone()[0])
 
 conn.close()
+print("Database ready at data/retail.db")
