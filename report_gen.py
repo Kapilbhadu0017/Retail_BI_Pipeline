@@ -22,7 +22,7 @@ q2 = pd.read_sql_query("""
     GRUOP BY product_name
     ORDER BY total_profit DESC
     LIMIT 10
-""")
+""", conn)
 
 q3 = pd.read_sql_query("""
     SELECT STRFTIME('%m-%Y', order_date) AS month,
