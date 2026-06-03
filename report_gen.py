@@ -1,6 +1,7 @@
 import sqlite3
 import pandas as pd 
 import matplotlib.pyplot as plt 
+import seaborn as sns
 import os
 
 conn = sqlite3.connect('data/retail.db')
@@ -12,7 +13,7 @@ q1 = pd.read_sql_query("""
         ROUND(SUM(profit), 2) as total_profit
     FROM sales
     GROUP BY region
-    ORDER BY total_revenue DESC
+    ORDER BY total_revenue ASC
 """, conn)
 
 q2 = pd.read_sql_query("""
@@ -53,8 +54,47 @@ q5 = pd.read_sql_query("""
 
 conn.close()
 
-print(q1)
-print(q2)
-print(q3.head(5))
-print(q4)
-print(q5)
+# Chart 1: Revenue by Region
+plt.figure(figsize=(10, 6))
+plt.barh(q1['region'], q1['total_revenue'])
+plt.xlabel('Total Revenue ($)')
+plt.ylabel('Region')
+plt.title('Total Revenue by Region')
+plt.tight_layout()
+plt.savefig('reports/charts/revenue_by_region.png', bbox_inches='tight')
+plt.close()
+
+# chart 2:top 10 profitable products
+plt.figure(figsize=(10,6))
+plt.barh(q2['product_name'].iloc[::-1], q2['total_profit'].iloc[::-1])
+plt.xlabel('Total Profit')
+plt.ylabel('Product Name')
+plt.title("Top 10 Most Profitable Products")
+plt.tight_layout()
+plt.savefig('reports/charts/top_products.png', bbox_inches='tight')
+plt.close()
+
+# chart 3: Monthly Sales Trend
+sns.set_theme(style="whitegrid")
+plt.figure(figsize=(14,5))
+sns.lineplot(data=q3, x='month', y='monthly_revenue', marker='o', color='#1f77b4', linewidth=2.5)
+plt.xticks(rotation=90, ha='right')
+plt.tight_layout()
+plt.savefig('reports/charts/monthly_trend.png', bbox_inches='tight')
+plt.close()
+
+
+
+
+
+
+
+
+
+
+
+# print(q1)
+# print(q2)
+# print(q3.head(5))
+# print(q4)
+# print(q5)
