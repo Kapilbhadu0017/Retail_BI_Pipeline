@@ -90,13 +90,10 @@ q3.to_csv('reports/revenue_by_months.csv',index = False)
 q4.to_csv('reports/category_sales_profit_margin.csv',index = False)
 q5.to_csv('reports/discount_impact_on_profit.csv',index = False)
 
-
-
-
-
-
 # print(q1)
 # print(q2)
 # print(q3.head(5))
 # print(q4)
 # print(q5)
+
+print('Report Generated Successfully !!')
