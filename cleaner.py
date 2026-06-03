@@ -2,10 +2,10 @@ import pandas as pd
 
 df = pd.read_csv('data/raw/Sample - Superstore.csv',encoding='latin-1')
 
-df.drop_duplicates()
+df = df.drop_duplicates()
 
 for col in df.columns:
-    if df[col].dtype == 'str':
+    if df[col].dtype == 'object':
         df[col] = df[col].str.strip()
 
 new_header = list(df.columns)
