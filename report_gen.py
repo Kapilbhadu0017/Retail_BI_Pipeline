@@ -37,10 +37,10 @@ q4 = pd.read_sql_query("""
     select category,
         round(sum(sales),2) as total_sales,
         round(sum(profit),2) as total_profit,
-        round((sum(profit) / sum(sales)*100), 2) as profit_margin_pct
+        round((sum(profit) / sum(sales)*100), 2) as profit_margin_percent
     from sales
     group by category
-    order by profit_margin_pct desc
+    order by profit_margin_percent desc
 """, conn)
 
 q5 = pd.read_sql_query("""
@@ -83,10 +83,12 @@ plt.tight_layout()
 plt.savefig('reports/charts/monthly_trend.png', bbox_inches='tight')
 plt.close()
 
-
-
-
-
+# saving queary results 
+q1.to_csv('reports/regional_revenue_and_profit.csv',index = False)
+q2.to_csv('reports/top_10_products_by_profit.csv',index = False)
+q3.to_csv('reports/revenue_by_months.csv',index = False)
+q4.to_csv('reports/category_sales_profit_margin.csv',index = False)
+q5.to_csv('reports/discount_impact_on_profit.csv',index = False)
 
 
 
