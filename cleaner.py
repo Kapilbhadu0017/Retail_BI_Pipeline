@@ -2,7 +2,11 @@ import pandas as pd
 
 df = pd.read_csv('data/raw/Sample - Superstore.csv',encoding='latin-1')
 
-# No duplicates or null values found in data, in exploration.ipynb
+df.drop_duplicates()
+
+for col in df.columns:
+    if df[col].dtype == 'str':
+        df[col] = df[col].str.strip()
 
 pd.set_option('display.max_columns', None)
 
