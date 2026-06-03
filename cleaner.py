@@ -8,8 +8,6 @@ for col in df.columns:
     if df[col].dtype == 'str':
         df[col] = df[col].str.strip()
 
-pd.set_option('display.max_columns', None)
-
 new_header = list(df.columns)
 
 for i in range(len(new_header)):
