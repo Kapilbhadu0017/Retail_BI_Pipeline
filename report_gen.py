@@ -37,7 +37,7 @@ q4 = pd.read_sql_query("""
     select category,
         round(sum(sales),2) as total_sales,
         round(sum(profit),2) as total_profit,
-        round((sum(profit) / sum(sales)*100), 2) as profit_margin_percent
+        round((sum(profit) / sum(sales))*100, 2) as profit_margin_percent
     from sales
     group by category
     order by profit_margin_percent desc
