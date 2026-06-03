@@ -155,6 +155,8 @@ python report_gen.py
 
 [Superstore Sales Dataset](https://www.kaggle.com/datasets/vivek468/superstore-dataset-final) — 9,994 retail orders across US regions (2014–2017), sourced from Kaggle.
 
+Download the CSV and place it at `data/raw/Sample - Superstore.csv` before running the pipeline.
+
 ---
 
 *Part of my data automation portfolio. Built with Python, SQL, and zero Excel.*

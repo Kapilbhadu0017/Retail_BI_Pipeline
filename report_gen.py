@@ -83,7 +83,7 @@ plt.tight_layout()
 plt.savefig('reports/charts/monthly_trend.png', bbox_inches='tight')
 plt.close()
 
-# saving queary results 
+# saving query results 
 q1.to_csv('reports/regional_revenue_and_profit.csv',index = False)
 q2.to_csv('reports/top_10_products_by_profit.csv',index = False)
 q3.to_csv('reports/revenue_by_months.csv',index = False)
