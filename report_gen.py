@@ -66,11 +66,14 @@ plt.close()
 
 # chart 2:top 10 profitable products
 plt.figure(figsize=(10,6))
-plt.barh(q2['product_name'].iloc[::-1], q2['total_profit'].iloc[::-1])
+bars = plt.barh(q2['product_name'].iloc[::-1], q2['total_profit'].iloc[::-1])
 plt.xlabel('Total Profit')
 plt.ylabel('Product Name')
 plt.title("Top 10 Most Profitable Products")
 plt.tight_layout()
+for bar in bars:
+        xval = bar.get_width()
+        plt.text(xval + 200, bar.get_y() + bar.get_height()/2, f"${xval:,.2f}", va="center", ha="left")
 plt.savefig('reports/charts/top_products.png', bbox_inches='tight')
 plt.close()
 
