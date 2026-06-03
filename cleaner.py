@@ -24,3 +24,4 @@ df['ship_date'] = pd.to_datetime(df['ship_date'])
 
 df.to_csv('data/clean/clean.csv', index = False)
 
+print("Data Cleaned Successfully !!")
